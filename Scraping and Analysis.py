@@ -106,7 +106,7 @@ import certifi
 import ssl
 ctx = ssl.create_default_context(cafile=certifi.where())
 geopy.geocoders.options.default_ssl_context = ctx
-geolocator = GoogleV3(api_key="AIzaSyD10-kKIwDMpB3k-Ahf_1O1qBN0dcdSWmM")
+geolocator = GoogleV3(api_key="private")
 #from geopy.extra.rate_limiter import RateLimiter
 #geocode = RateLimiter(geolocator.geocode, min_delay_seconds=5)
 
