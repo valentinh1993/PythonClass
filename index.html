@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AIR CRASHS DATABASE</title>
+        <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+        <script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container" style="text-align:center;">
+            <div class="jumbotron">
+                <div class="panel panel-success">
+                    <div class="panel-heading"><h1>AIR CRASHS DATABASE</h1></div>
+                </div>
+                <p><h3>Please Input Your Search Condition</h3></p>
+                <form method="POST" name="myForm" onsubmit="return checkInput();">
+                    <p><input type="text" name = "Date" placeholder = "Date" /></p>
+                    <p><input type="text" name = "Time" placeholder = "Time" /></p>
+                    <p><input type="text" name = "Location" placeholder = "Location" /></p>
+                    <p><input type="text" name = "Operater" placeholder = "Operater" /></p>
+                    <p><input type="text" name = "ACType" placeholder = "AC Type" /></p>
+                    <p><input type="submit" class="btn-group btn-group-lg" value = "Submit"/></p>
+                </form>
+                <p><h3>{{ Result }}</h3></p>
+
+                {% for data in Data %}
+                <table class="table table-bordered table-striped table-condensed">
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            <td class="danger"><h4><strong>{{ item }}</strong></h4></td>
+                            <td><h4>{{ data [item] }}</h4></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h5 class="page-header"></h5>
+                <h5 class="page-header"></h5>
+                <h5 class="page-header"></h5>
+                <h5 class="page-header"></h5>
+                {% endfor %}
+
+                <p><a href="https://plot.ly/~ValentinHilbig/2.embed?fbclid=IwAR0heSrJnNYdFDVrwMvwq10Q9QzWR8dtVpHAoaftYyAy7G2tokV8v5TG2f8">Show me the map</a></p>
+                <p><a href="https://pic.pimg.tw/violetwu5/1544569031-1063865787_n.png">Analysis about the month of the year</a></p>
+                <p><a href="https://pic.pimg.tw/violetwu5/1544569031-169062814_n.png">Analysis about AC type</a></p>
+            </div>
+        </div>
+    </body>
+    <script>
+        function checkInput () {
+            if (myForm.Date.value == "" && myForm.Time.value == "" && myForm.Location.value == "" && myForm.Operater.value == "" && myForm.ACType.value == "")
+            {
+                alert("Please Input At Least One Condition");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</html>
